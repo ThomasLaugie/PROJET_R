@@ -1,97 +1,99 @@
-
 library(shiny)
-defaultColor <- "padding:20px; font-size:120%;
-         color: white; background-color: Grey;
-         border-color: #2C3E50"
+library(shinyjs)
+
+
 ui <- fluidPage(
   # Create a 8x8 grid of buttons for the game board
   numericInput("i", "i", 3),
   numericInput("j", "j", 3),
+  tags$style(HTML("body {background-color: green;}")),
   fluidRow(
-    column(width = 10, offset = 1,
+    column(width = 7, offset = 4,tags$style(".btn { width : 220%; height: 50px;background-color: orange}"),
            fluidRow(
              
-             column(width = 1, actionButton("11", "",style=defaultColor)),
-             column(width = 1, actionButton("12", "",style=defaultColor)),
-             column(width = 1, actionButton("13", "",style=defaultColor)),
-             column(width = 1, actionButton("14", "",style=defaultColor)),
-             column(width = 1, actionButton("15", "",style=defaultColor)),
-             column(width = 1, actionButton("16", "",style=defaultColor)),
-             column(width = 1, actionButton("17", "",style=defaultColor)),
-             column(width = 1, actionButton("18", "",style=defaultColor))
+             column(width = 1, actionButton("11", "")),
+             column(width = 1, actionButton("12", "")),
+             column(width = 1, actionButton("13", "")),
+             column(width = 1, actionButton("14", "")),
+             column(width = 1, actionButton("15", "")),
+             column(width = 1, actionButton("16", "")),
+             column(width = 1, actionButton("17", "")),
+             column(width = 1, actionButton("18", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("21", "",style=defaultColor)),
-             column(width = 1, actionButton("22", "",style=defaultColor)),
-             column(width = 1, actionButton("23", "",style=defaultColor)),
-             column(width = 1, actionButton("24", "",style=defaultColor)),
-             column(width = 1, actionButton("25", "",style=defaultColor)),
-             column(width = 1, actionButton("26", "",style=defaultColor)),
-             column(width = 1, actionButton("27", "",style=defaultColor)),
-             column(width = 1, actionButton("28", "",style=defaultColor))
+             column(width = 1, actionButton("21", "")),
+             column(width = 1, actionButton("22", "")),
+             column(width = 1, actionButton("23", "")),
+             column(width = 1, actionButton("24", "")),
+             column(width = 1, actionButton("25", "")),
+             column(width = 1, actionButton("26", "")),
+             column(width = 1, actionButton("27", "")),
+             column(width = 1, actionButton("28", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("31", "",style=defaultColor)),
-             column(width = 1, actionButton("32", "",style=defaultColor)),
-             column(width = 1, actionButton("33", "",style=defaultColor)),
-             column(width = 1, actionButton("34", "",style=defaultColor)),
-             column(width = 1, actionButton("35", "",style=defaultColor)),
-             column(width = 1, actionButton("36", "",style=defaultColor)),
-             column(width = 1, actionButton("37", "",style=defaultColor)),
-             column(width = 1, actionButton("38", "",style=defaultColor))
+             column(width = 1, actionButton("31", "")),
+             column(width = 1, actionButton("32", "")),
+             column(width = 1, actionButton("33", "")),
+             column(width = 1, actionButton("34", "")),
+             column(width = 1, actionButton("35", "")),
+             column(width = 1, actionButton("36", "")),
+             column(width = 1, actionButton("37", "")),
+             column(width = 1, actionButton("38", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("41", "",style=defaultColor)),
-             column(width = 1, actionButton("42", "",style=defaultColor)),
-             column(width = 1, actionButton("43", "",style=defaultColor)),
-             column(width = 1, actionButton("44", "",style=defaultColor)),
-             column(width = 1, actionButton("45", "",style=defaultColor)),
-             column(width = 1, actionButton("46", "",style=defaultColor)),
-             column(width = 1, actionButton("47", "",style=defaultColor)),
-             column(width = 1, actionButton("48", "",style=defaultColor))
+             column(width = 1, actionButton("41", "")),
+             column(width = 1, actionButton("42", "")),
+             column(width = 1, actionButton("43", "")),
+             column(width = 1, actionButton("44", "")),
+             column(width = 1, actionButton("45", "")),
+             column(width = 1, actionButton("46", "")),
+             column(width = 1, actionButton("47", "")),
+             column(width = 1, actionButton("48", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("51", "",style=defaultColor)),
-             column(width = 1, actionButton("52", "",style=defaultColor)),
-             column(width = 1, actionButton("53", "",style=defaultColor)),
-             column(width = 1, actionButton("54", "",style=defaultColor)),
-             column(width = 1, actionButton("55", "",style=defaultColor)),
-             column(width = 1, actionButton("56", "",style=defaultColor)),
-             column(width = 1, actionButton("57", "",style=defaultColor)),
-             column(width = 1, actionButton("58", "",style=defaultColor))
+             column(width = 1, actionButton("51", "")),
+             column(width = 1, actionButton("52", "")),
+             column(width = 1, actionButton("53", "")),
+             column(width = 1, actionButton("54", "")),
+             column(width = 1, actionButton("55", "")),
+             column(width = 1, actionButton("56", "")),
+             column(width = 1, actionButton("57", "")),
+             column(width = 1, actionButton("58", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("61", "",style=defaultColor)),
-             column(width = 1, actionButton("62", "",style=defaultColor)),
-             column(width = 1, actionButton("63", "",style=defaultColor)),
-             column(width = 1, actionButton("64", "",style=defaultColor)),
-             column(width = 1, actionButton("65", "",style=defaultColor)),
-             column(width = 1, actionButton("66", "",style=defaultColor)),
-             column(width = 1, actionButton("67", "",style=defaultColor)),
-             column(width = 1, actionButton("68", "",style=defaultColor))
+             column(width = 1, actionButton("61", "")),
+             column(width = 1, actionButton("62", "")),
+             column(width = 1, actionButton("63", "")),
+             column(width = 1, actionButton("64", "")),
+             column(width = 1, actionButton("65", "")),
+             column(width = 1, actionButton("66", "")),
+             column(width = 1, actionButton("67", "")),
+             column(width = 1, actionButton("68", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("71", "",style=defaultColor)),
-             column(width = 1, actionButton("72", "",style=defaultColor)),
-             column(width = 1, actionButton("73", "",style=defaultColor)),
-             column(width = 1, actionButton("74", "",style=defaultColor)),
-             column(width = 1, actionButton("75", "",style=defaultColor)),
-             column(width = 1, actionButton("76", "",style=defaultColor)),
-             column(width = 1, actionButton("77", "",style=defaultColor)),
-             column(width = 1, actionButton("78", "",style=defaultColor))
+             column(width = 1, actionButton("71", "")),
+             column(width = 1, actionButton("72", "")),
+             column(width = 1, actionButton("73", "")),
+             column(width = 1, actionButton("74", "")),
+             column(width = 1, actionButton("75", "")),
+             column(width = 1, actionButton("76", "")),
+             column(width = 1, actionButton("77", "")),
+             column(width = 1, actionButton("78", ""))
            ),
            fluidRow(
-             column(width = 1, actionButton("81", "",style=defaultColor)),
-             column(width = 1, actionButton("82", "",style=defaultColor)),
-             column(width = 1, actionButton("83", "",style=defaultColor)),
-             column(width = 1, actionButton("84", "",style=defaultColor)),
-             column(width = 1, actionButton("85", "",style=defaultColor)),
-             column(width = 1, actionButton("86", "",style=defaultColor)),
-             column(width = 1, actionButton("87", "",style=defaultColor)),
-             column(width = 1, actionButton("88", "",style=defaultColor))
+             column(width = 1, actionButton("81", "")),
+             column(width = 1, actionButton("82", "")),
+             column(width = 1, actionButton("83", "")),
+             column(width = 1, actionButton("84", "")),
+             column(width = 1, actionButton("85", "")),
+             column(width = 1, actionButton("86", "")),
+             column(width = 1, actionButton("87", "")),
+             column(width = 1, actionButton("88", ""))
            )
     )
-  )
+  ),
+  mainPanel(
+    align = "center" )
 )
 
 initialize_board <- function() {
@@ -110,18 +112,29 @@ initialize_board <- function() {
         board[i, j] <- num_adjacent_mines
       }
     }
+    
   }
-  
+  board <- ifelse(board < 0, "💣" , board)
   return(board)
 }
+liste = c()
+convex <- function(i,j) {
+  for (x in max(i-1,1):min(i+1,8)) {
+    for (y in max(j-1,1):min(j+1,8)) {
+      liste <- paste0(x,y)}}
+  return(liste)
+  
+}
+
 
 
 server <- function(input, output, session) {
   
   # Initialize the game board
   
+  
   # Store the board state in a reactiveValues object
-  rv <- reactiveValues(board = initialize_board)
+  rv <- reactiveValues( board = initialize_board)
   rv$board <- initialize_board()
   
   # Define the event handlers for button clicks
@@ -131,28 +144,62 @@ server <- function(input, output, session) {
       lapply(1:8, function(j) {
         button_id <- paste0(i, j)
         observeEvent(input[[button_id]], {
-          if (rv$board[i, j] == -1) {
+          if (rv$board[i, j] == "💣") {
             # If the button is a mine, reveal all mines and end the game
             for (x in 1:8) {
               for (y in 1:8) {
                 button_id <- paste0(x, y)
+                
                 updateActionButton(session, button_id, label = rv$board[x, y])
               }
             }
-            showModal(modalDialog("Game over! You hit a mine.", easyClose = TRUE))
+            showModal(modalDialog("Game over! You hit a mine.", easyClose = T))
           }else {
             # If the button is not a mine, reveal the button and any adjacent buttons with 0 mines
             updateActionButton(session, button_id, label = rv$board[i, j])
+            
             if (rv$board[i, j] == 0) {
+              
               for (x in max(i-1,1):min(i+1,8)) {
                 for (y in max(j-1,1):min(j+1,8)) {
-                  if (rv$board[x, y] != -1) {
+                  if (rv$board[x, y] != "💣" ) {
                     adjacent_button_id <- paste0(x, y)
+                    
                     if (!input[[adjacent_button_id]]) {
                       # Only reveal adjacent buttons if they have not been clicked yet
                       updateActionButton(session, adjacent_button_id, label = rv$board[x, y])
                     }
+                    
                   }
+                  for (x in max(i-1,1):min(i+1,8) ){
+                    for(y in max(j-1,1):min(j+1,8) ){
+                      if (rv$board[x, y] == 0){
+                        for (t in max(x-1,1):min(x+1,8)) {
+                          for (s in max(y-1,1):min(y+1,8)) {
+                            adjacent_button_id <- paste0(t, s)
+                            if (rv$board[t, s] != "💣" ) {
+                              if (!input[[adjacent_button_id]]) {
+                                # Only reveal adjacent buttons if they have not been clicked yet
+                                updateActionButton(session, adjacent_button_id, label = rv$board[t, s])
+                              }}
+                          }}}}}
+                  for (t in max(x-1,1):min(x+1,8)) {
+                    for (s in max(y-1,1):min(y+1,8)) {
+                      if (rv$board[t, s] == 0){
+                        
+                        for (a in max(t-1,1):min(t+1,8)) {
+                          for (b in max(s-1,1):min(s+1,8)) {
+                            adjacent_button_id <- paste0(a,b)
+                            if (rv$board[a, b] != "💣" ) {
+                              if (!input[[adjacent_button_id]]) {
+                                # Only reveal adjacent buttons if they have not been clicked yet
+                                updateActionButton(session, adjacent_button_id, label = rv$board[a, b])
+                              }}
+                          }}}}}
+                  
+                  
+                  
+                  
                 }
               }
             }
@@ -162,5 +209,3 @@ server <- function(input, output, session) {
   })
 }
 shinyApp(ui, server)
-
-
