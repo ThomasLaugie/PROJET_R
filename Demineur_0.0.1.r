@@ -4,11 +4,17 @@ library(shinyjs)
 
 ui <- fluidPage(
   # Create a 8x8 grid of buttons for the game board
-  numericInput("i", "i", 3),
-  numericInput("j", "j", 3),
-  tags$style(HTML("body {background-color: green;}")),
+  tags$style(HTML("body {background-color: green;}
+                  footer{background-color: green}
+                  #modal1 .modal-body {padding: 10px}
+                  #modal1 .modal-content  {-webkit-border-radius: 6px !important;-moz-border-radius: 6px !important;border-radius: 6px !important;}
+                  #modal1 .modal-dialog { width: 240px; display: inline-block; text-align: left; vertical-align: top;}
+                  #modal1 .modal-header {background-color: #339FFF; border-top-left-radius: 6px; border-top-right-radius: 6px}
+                  #modal1 .modal { text-align: right; padding-right:10px; padding-top: 24px;}
+                  #modal1 .close { font-size: 16px}
+                  .btn { width : 220%; height: 50px;background-color: orange}")),
   fluidRow(
-    column(width = 7, offset = 4,tags$style(".btn { width : 220%; height: 50px;background-color: orange}"),
+    column(width = 7, offset = 4,
            fluidRow(
              
              column(width = 1, actionButton("11", "")),
@@ -153,7 +159,24 @@ server <- function(input, output, session) {
                 updateActionButton(session, button_id, label = rv$board[x, y])
               }
             }
-            showModal(modalDialog("Game over! You hit a mine.", easyClose = T))
+            # showModal( modalDialog(
+            #   title = "Game over 😵! ","You hit a mine.",
+            #   size = c("m"),
+            #   easyClose = TRUE,
+            #   #modalButton("Dismiss",tag$style(".btn { width : 100%; height: 50px;background-color: green}"))
+            # ))
+              
+              showModal(tags$div(id="modal1", modalDialog(
+                inputId = 'Dialog1', 
+                title = HTML('<span style="color:white; font-size: 20px; font-weight:bold; font-family:sans-serif ">Game over 😵! <span>
+               <button type = "button" class="close" data-dismiss="modal" ">
+               <span style="color:white; ">X<span>
+               </button> '),
+                "You hit a mine.",
+                easyClose = TRUE,
+                footer = NULL )))
+            
+           
           }else {
             # If the button is not a mine, reveal the button and any adjacent buttons with 0 mines
             updateActionButton(session, button_id, label = rv$board[i, j])
