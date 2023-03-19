@@ -1,0 +1,23 @@
+Package: demineurProjetR
+Type: Package
+Title: Jeu de démineur en R
+Version: 0.1.0
+Date: 2023-03-19
+Author: Laugie Thomas  Lamrini Oualid
+Maintainer: Laugie Thomas <thomas.laugie@etu.umontpellier.fr>, Lamrini Oualid <oualid.lamrini@etu.umontpellier.fr>
+Description: Demineur est une implémentation du célèbre jeu de démineur en R. 
+    Le jeu consiste à découvrir un champ de mines sans déclencher aucune mine. 
+    Les joueurs doivent révéler les cases du champ de mines tout en évitant les 
+    cases contenant des mines. Chaque case révélée affiche soit un chiffre 
+    indiquant le nombre de mines adjacentes, soit une mine (entraînant la fin de 
+    la partie), soit une case vide. En se basant sur ces informations, les joueurs 
+    doivent déduire l'emplacement des mines et marquer les cases suspectes avec 
+    des drapeaux. Le but du jeu est de découvrir toutes les cases sans mines et 
+    de marquer correctement toutes les cases contenant des mines.
+License: GPL-3
+Depends:
+    shiny,
+    shinyjs,
+    dbplyr
+Encoding: UTF-8
+LazyData: true
